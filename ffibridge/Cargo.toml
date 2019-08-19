@@ -1,0 +1,19 @@
+[package]
+name = "ffibridge"
+version = "0.1.0"
+authors = ["h4x3rotab <h4x3rotab@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "ffibridge"
+crate-type = ["cdylib"]
+
+[dependencies]
+hex = "0.3.2"
+protobuf = "~2.7"
+serde_json = "1.0.40"
+
+failure = { package = "failure_ext", path = "../common/failure_ext" }
+proto_conv = { path = "../common/proto_conv" }
+types = { path = "../types" }
+vm_genesis = { path = "../language/vm/vm_genesis" }

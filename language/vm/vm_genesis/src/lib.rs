@@ -157,11 +157,11 @@ impl Accounts {
 }
 
 lazy_static! {
-    static ref PEER_TO_PEER_TXN: Vec<u8> = { compile_script(&PEER_TO_PEER_TRANSFER_TXN_BODY) };
-    static ref CREATE_ACCOUNT_TXN: Vec<u8> = { compile_script(&CREATE_ACCOUNT_TXN_BODY) };
-    static ref ROTATE_AUTHENTICATION_KEY_TXN: Vec<u8> =
+    pub static ref PEER_TO_PEER_TXN: Vec<u8> = { compile_script(&PEER_TO_PEER_TRANSFER_TXN_BODY) };
+    pub static ref CREATE_ACCOUNT_TXN: Vec<u8> = { compile_script(&CREATE_ACCOUNT_TXN_BODY) };
+    pub static ref ROTATE_AUTHENTICATION_KEY_TXN: Vec<u8> =
         { compile_script(&ROTATE_AUTHENTICATION_KEY_TXN_BODY) };
-    static ref MINT_TXN: Vec<u8> = { compile_script(&MINT_TXN_BODY) };
+    pub static ref MINT_TXN: Vec<u8> = { compile_script(&MINT_TXN_BODY) };
     static ref GENESIS_ACCOUNT: Accounts = {
         let mut account = Accounts::empty();
         account.new_account();
