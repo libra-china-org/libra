@@ -115,8 +115,14 @@ pub extern fn decode_account_state_blob(data: *const u8, size: usize, out_json_b
         "balance": r.balance(),
         "sequence_number": r.sequence_number(),
         "authentication_key": hex_from_bytes(r.authentication_key().as_bytes()),
-        "sent_events_count": r.sent_events_count(),
-        "received_events_count": r.received_events_count(),
+        "sent_events": {
+            "key": hex_from_bytes(r.sent_events().key().as_bytes()),
+            "count": r.sent_events().count(),
+        },
+        "received_events": {
+            "key": hex_from_bytes(r.received_events().key().as_bytes()),
+            "count": r.received_events().count(),
+        },
         "delegated_withdrawal_capability": r.delegated_withdrawal_capability(),
     }), out_json_buff, out_json_size) {
         Ok(()) => true,
